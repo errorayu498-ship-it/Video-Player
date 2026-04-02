@@ -1,30 +1,42 @@
+<?php
+$videos = json_decode(file_get_contents("data/videos.json"), true);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Pro Video Portal</title>
-
-<link rel="stylesheet" href="style.css">
-
+<title>Video Portal</title>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
 
-<div class="glass-box">
-
+<header class="topbar">
 <h1>Cord Flix</h1>
+</header>
 
-<form action="player.php" method="GET">
+<div class="grid">
 
-<input type="text" name="url" placeholder="URL" required>
+<?php foreach($videos as $video){ ?>
 
-<button>Watch</button>
+<div class="card">
 
-</form>
+<img src="<?php echo $video['thumbnail']; ?>">
+
+<div class="overlay">
+
+<a href="player.php?id=<?php echo $video['id']; ?>"> Play
+</a>
 
 </div>
 
-<script src="script.js"></script>
+</div>
+
+<?php } ?>
+
+</div>
+
+<script src="assets/script.js"></script>
 
 </body>
 </html>
