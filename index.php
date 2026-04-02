@@ -9,7 +9,7 @@
 
 <div class="container">
 
-<h1 class="title">Universal Video Player</h1>
+<h1 class="title">CordFlix</h1>
 
 <form action="player.php" method="GET">
 
