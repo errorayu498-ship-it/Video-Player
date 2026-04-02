@@ -1,29 +1,48 @@
 <?php
+
+include "detect.php";
+
 $url = $_GET['url'];
+
+$video = detectVideo($url);
+
 ?>
 
 <!DOCTYPE html>
+
 <html>
+
 <head>
-<title>CordFlix</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="player-container">
+<div class="player">
 
-<h2>Now Playing</h2>
+<div class="loader"></div>
 
-<div class="video-box">
+<div class="video-area">
 
-<iframe src="<?php echo $url; ?>" allowfullscreen></iframe>
+<iframe id="player" src="<?php echo $video; ?>" allowfullscreen></iframe>
+
+</div>
+
+<div class="controls">
+
+<button onclick="cinema()"> Cinema Mode</button>
+
+<a href="<?php echo $url; ?>" download>
+<button>Download</button>
+</a>
 
 </div>
 
-<a href="index.php" class="back">Back</a>
-
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
