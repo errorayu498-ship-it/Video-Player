@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Universal Video Player</title>
+
+<title>Pro Video Portal</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="glass-box">
 
-<h1 class="title">CordFlix</h1>
+<h1>Cord Flix</h1>
 
 <form action="player.php" method="GET">
 
 <input type="text" name="url" placeholder="URL" required>
 
-<button type="submit">Watch</button>
+<button>Watch</button>
 
 </form>
 
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
