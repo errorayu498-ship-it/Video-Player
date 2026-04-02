@@ -1,10 +1,10 @@
 <?php
 
-include "detect.php";
+$videos = json_decode(file_get_contents("data/videos.json"), true);
 
-$url = $_GET['url'];
+$id = $_GET['id'];
 
-$video = detectVideo($url);
+$video = $videos[$id];
 
 ?>
 
@@ -14,7 +14,7 @@ $video = detectVideo($url);
 
 <head>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/style.css">
 
 </head>
 
@@ -22,27 +22,21 @@ $video = detectVideo($url);
 
 <div class="player">
 
-<div class="loader"></div>
+<video id="video" controls>
 
-<div class="video-area">
+<source src="<?php echo $video['url']; ?>" type="video/mp4">
 
-<iframe id="player" src="<?php echo $video; ?>" allowfullscreen></iframe>
+</video>
 
-</div>
+<div class="progress">
 
-<div class="controls">
-
-<button onclick="cinema()"> Cinema Mode</button>
-
-<a href="<?php echo $url; ?>" download>
-<button>Download</button>
-</a>
+<div class="progress-bar" id="bar"></div>
 
 </div>
 
 </div>
 
-<script src="script.js"></script>
+<script src="assets/script.js"></script>
 
 </body>
 </html>
